@@ -1,0 +1,12 @@
+# Render Blueprint — Frontend (Docker)
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: tin-react-demo
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: VITE_BACKEND_URL
+        value: https://be-2-emw3.onrender.com/api/v1
