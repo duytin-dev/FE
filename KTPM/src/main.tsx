@@ -10,6 +10,7 @@ import {
 import HomePage from './page/home.page'
 import UserPage from './page/user.page'
 import BlogPage from './page/blog.page'
+import AiPage from './page/ai.page'
 const router = createBrowserRouter([
   {
     path:"/",
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path : "blogs",
       element : <BlogPage/>
+      },
+      {
+        path: "ai",
+        element: <AiPage />,
       }
     ]
   },

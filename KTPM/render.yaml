@@ -10,3 +10,5 @@ services:
     envVars:
       - key: VITE_BACKEND_URL
         value: https://be-2-emw3.onrender.com/api/v1
+      - key: VITE_CLOUDINARY_CLOUD_NAME
+        value: diodfucny

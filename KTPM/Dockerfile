@@ -11,6 +11,8 @@ COPY . .
 # Vite nhúng biến lúc build — Render truyền env cùng tên ARG vào docker build
 ARG VITE_BACKEND_URL=https://be-2-emw3.onrender.com/api/v1
 ENV VITE_BACKEND_URL=$VITE_BACKEND_URL
+ARG VITE_CLOUDINARY_CLOUD_NAME=diodfucny
+ENV VITE_CLOUDINARY_CLOUD_NAME=$VITE_CLOUDINARY_CLOUD_NAME
 
 RUN npm run build
 

@@ -17,4 +17,9 @@ const deleteUserApi = (id:number) => {
     return axios.delete(url);
 }
 
-export {getUsersApi,createUserApi,updateUserApi,deleteUserApi};
+const geminiChatApi = (prompt: string) => {
+    const url = `${import.meta.env.VITE_BACKEND_URL}/ai/gemini`;
+    return axios.post<{ text: string }>(url, { prompt });
+};
+
+export {getUsersApi,createUserApi,updateUserApi,deleteUserApi,geminiChatApi};

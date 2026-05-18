@@ -1,4 +1,5 @@
-import { HomeOutlined, UserSwitchOutlined } from '@ant-design/icons';
+import React from 'react';
+import { HomeOutlined, RobotOutlined, UserSwitchOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import type { MenuProps } from 'antd';
 import { Link, useLocation } from 'react-router';
@@ -14,10 +15,16 @@ const items: MenuProps['items'] = [
     key: 'user',
     icon: <UserSwitchOutlined />,
   },
+  {
+    label: <Link to="/ai">AI</Link>,
+    key: 'ai',
+    icon: <RobotOutlined />,
+  },
 ];
 
 const pathToKey = (pathname: string): string => {
   if (pathname.startsWith('/users')) return 'user';
+  if (pathname.startsWith('/ai')) return 'ai';
   return 'home';
 };
 
