@@ -1,32 +1,37 @@
-import React, { useState } from 'react';
 import { HomeOutlined, UserSwitchOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import { Link } from 'react-router';
-const items = [
+import { Link, useLocation } from 'react-router';
+
+const items: MenuProps['items'] = [
   {
-    label: <Link  to={"/"}>Home</Link>,
+    label: <Link to="/">Home</Link>,
     key: 'home',
     icon: <HomeOutlined />,
   },
   {
-    label: <Link to={"/users"}>User</Link>,
+    label: <Link to="/users">User</Link>,
     key: 'user',
-    icon: <UserSwitchOutlined/>,
-
+    icon: <UserSwitchOutlined />,
   },
 ];
-const AppHeader = () => {
-   const [current, setCurrent] = useState('home');
-  const onClick: MenuProps['onClick'] = (e) => {
-  console.log('click ', e);
-  setCurrent(e.key);
+
+const pathToKey = (pathname: string): string => {
+  if (pathname.startsWith('/users')) return 'user';
+  return 'home';
 };
-    return (
+
+const AppHeader = () => {
+  const { pathname } = useLocation();
+  const selectedKey = pathToKey(pathname);
+
+  return (
     <Menu
-    onClick={onClick}
-    selectedKeys={[current]}
-     mode="horizontal"
-     items={items} />);
-}
-export default AppHeader
+      selectedKeys={[selectedKey]}
+      mode="horizontal"
+      items={items}
+    />
+  );
+};
+
+export default AppHeader;
